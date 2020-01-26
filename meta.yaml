@@ -1,0 +1,46 @@
+{% set name = "omero-cli-database" %}
+{% set version = "0.0.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}{{ environ.get('VERSION_SUFFIX', '') }}"
+
+source:
+  git_url: https://github.com/manics/omero-cli-database.git
+  git_rev: {{ version }}
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script_env:
+    - VERSION_SUFFIX
+
+requirements:
+  host:
+    - pip
+    - python =3
+    - setuptools_scm
+  run:
+    - python =3
+    - omero-py-minimal >=5.6
+
+test:
+  commands:
+    - omero database --help
+  imports:
+    - omero_database
+    - omero_database.db
+    - omero_database.external
+
+about:
+  home: https://www.openmicroscopy.org/
+  license: GNU General Public v2 or later (GPLv2+)
+  license_family: GPL2
+  summary: OMERO database management plugin
+  doc_url: https://github.com/manics/omero-cli-database
+  dev_url: https://github.com/manics/omero-cli-database
+
+extra:
+  recipe-maintainers:
+    - ome
