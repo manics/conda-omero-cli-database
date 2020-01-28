@@ -31,6 +31,7 @@ script:
     else
       export VERSION_SUFFIX="";
     fi
+  # conda-forge is needed for setuptools_scm
   - conda build -c ${ANACONDA_USER} -c conda-forge --python $PYTHON .
 
 deploy:
