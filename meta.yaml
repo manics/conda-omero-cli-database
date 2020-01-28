@@ -1,5 +1,5 @@
 {% set name = "omero-cli-database" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -28,6 +28,7 @@ requirements:
 test:
   commands:
     - omero database --help
+    - omero database justdoit --help
   imports:
     - omero_database
     - omero_database.db
