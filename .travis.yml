@@ -10,7 +10,7 @@ matrix:
 
 env:
   global:
-    - PACKAGE_NAME=omero-cli-database
+    - PACKAGE_NAME=omero-server-setup
     - ANACONDA_USER="${TRAVIS_REPO_SLUG%/*}"
     - PATH="$HOME/miniconda/bin:$PATH"
 

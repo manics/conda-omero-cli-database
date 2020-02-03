@@ -1,4 +1,4 @@
-# OMERO CLI Database Conda package
-[![Anaconda-Server Badge](https://anaconda.org/manics/omero-cli-database/badges/version.svg)](https://anaconda.org/manics/omero-cli-database)
+# OMERO.server setup and database management Conda package
+[![Anaconda-Server Badge](https://anaconda.org/manics/omero-server-setup/badges/version.svg)](https://anaconda.org/manics/omero-server-setup)
 
-A Conda package for OMERO CLI Database manager.
+A Conda package for the OMERO server setup CLI plugin.

@@ -1,12 +1,12 @@
-{% set name = "omero-cli-database" %}
-{% set version = "0.0.5" %}
+{% set name = "omero-server-setup" %}
+{% set version = "0.0.6" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}{{ environ.get('VERSION_SUFFIX', '') }}"
 
 source:
-  git_url: https://github.com/manics/omero-cli-database.git
+  git_url: https://github.com/manics/omero-server-setup.git
   git_rev: {{ version }}
 
 build:
@@ -27,20 +27,34 @@ requirements:
 
 test:
   commands:
-    - omero database --help
-    - omero database justdoit --help
+    - omero setup --help
+    - omero setup createconfig --help
+    - omero setup justdoit --help
+    - omero setup create --help
+    - omero setup init --help
+    - omero setup upgrade --help
+    - omero setup dump --help
+    - omero setup certificates --help
+    - omero setup pginit --help
+    - omero setup pgstart --help
+    - omero setup pgstop --help
+    - omero setup start --help
+    - omero setup stop --help
   imports:
-    - omero_database
-    - omero_database.db
-    - omero_database.external
+    - omero_server_setup
+    - omero_server_setup.certificates
+    - omero_server_setup.cli
+    - omero_server_setup.createconfig
+    - omero_server_setup.db
+    - omero_server_setup.external
 
 about:
   home: https://www.openmicroscopy.org/
   license: GNU General Public v2 or later (GPLv2+)
   license_family: GPL2
-  summary: OMERO database management plugin
-  doc_url: https://github.com/manics/omero-cli-database
-  dev_url: https://github.com/manics/omero-cli-database
+  summary: OMERO server setup and database management plugin
+  doc_url: https://github.com/manics/omero-server-setup
+  dev_url: https://github.com/manics/omero-server-setup
 
 extra:
   recipe-maintainers:
